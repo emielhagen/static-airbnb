@@ -5,7 +5,6 @@
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:300,400,500,700">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/style.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- Leave those next 4 lines if you care about users using IE8 -->
@@ -56,41 +55,19 @@
         <div class="container">
           <h2 class="text-center">Your next trip</h2>
           <div class="row">
+            <% data.flats.each do |owner, flat| %>
             <div class="col-xs-12 col-sm-4">
-              <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/card-paris.jpg');">
-                <div class="card-category">Paris</div>
+            <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path flat.picture %>');">
+                <div class="card-category"><%= flat.city %></div>
                 <div class="card-description">
-                  <h2>Seb's home</h2>
-                  <p>Charming room with patio</p>
+                  <h2><%= flat.name %></h2>
+                  <p><%= flat.summary %></p>
                 </div>
-                <img class="card-user avatar avatar-large" src="https://unsplash.it/100/100">
-                <a class="card-link" href="#" ></a>
+                <%= image_tag flat.owner_picture, class:"card-user avatar avatar-large" %>
+                <%= link_to "flats/#{owner}.html", "#", class: "card-link" %>
               </div>
             </div>
-
-            <div class="col-xs-12 col-sm-4">
-              <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/card-brussels.jpeg');">
-                <div class="card-category">Brussels</div>
-                <div class="card-description">
-                  <h2>Seb's home</h2>
-                  <p>Charming room with patio</p>
-                </div>
-                <img class="card-user avatar avatar-large" src="https://unsplash.it/100/100">
-                <a class="card-link" href="#"></a>
-              </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-4">
-              <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/card-london.jpeg');">
-                <div class="card-category">London</div>
-                <div class="card-description">
-                  <h2>Seb's home</h2>
-                  <p>Charming room with patio</p>
-                </div>
-                <img class="card-user avatar avatar-large" src="https://unsplash.it/100/100">
-                <a class="card-link" href="#"></a>
-              </div>
-            </div>
+            <% end %>
           </div>
         </div>
       </div>
