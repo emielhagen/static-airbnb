@@ -1,0 +1,17 @@
+/* Banner design */
+.banner {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  height: 100vh;
+  color: white;
+}
+
+.banner h1 {
+  font-size: 50px;
+}
+
+.banner p {
+  font-size: 25px;
+}
